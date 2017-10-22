@@ -17,6 +17,11 @@ ul {
 
       & .text {
         vertical-align: middle;
+
+        & i.material-icons.outbound-link {
+          vertical-align: text-top;
+          font-size: $font-size-small;
+        }
       }
 
       &.active {
