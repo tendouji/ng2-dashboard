@@ -1,0 +1,63 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixins.scss';
+
+.performance-chart {
+  .average-percentage {
+    padding: $padding-small;
+    border-radius: $padding-small;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: $color-white;
+    background-color: rgba(200,100,235,1);
+    
+    & .label {
+      display: block;
+      font-weight: normal;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.visit-chart {
+  & .chart-container {
+    position: relative;
+    max-width: 200px;
+    margin: 0 auto;
+
+    & .chart-holder {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+    }
+
+    & .chart-count {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 64%;
+      height: 64%;
+      margin: -32% 0 0 -32%;
+      padding: 22% 0;
+      border-radius: 50%;
+      background-color: $color-blue;
+      color: $color-white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5em;
+      box-sizing: border-box;
+      
+      & span {
+        display: block;
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+.user-chart, 
+.purchase-chart, 
+.signup-chart {
+  @extend .visit-chart;
+}

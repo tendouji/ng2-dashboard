@@ -1,0 +1,46 @@
+@import '../../../../assets/variables.scss';
+
+:host ::ng-deep .line-table {
+  & table {
+    width: 100%;
+    border-top: 1px solid $border-color;
+    border-collapse: collapse;
+    font-size: $font-size-small;
+    //table-layout: fixed;
+
+    & thead {
+      background-color: $color-third;
+
+      @media #{$large-screen-media} {
+        display: none;
+      }
+    }
+
+    & tr {
+      border-bottom: 1px solid $border-color;
+    }
+
+    & th, 
+    & td {
+      padding: 5px;
+      text-align: left;
+
+      @media #{$large-screen-media} {
+        display: block;
+      }
+
+      & .title {
+        display: none;
+        font-weight: bold;
+
+        @media #{$large-screen-media} {
+          display: inline;
+
+          &:after {
+            content: ': ';
+          }
+        }
+      }
+    }
+  }
+}

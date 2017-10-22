@@ -1,0 +1,108 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixins.scss';
+
+.location-container {
+
+  & .location-name, 
+  & .location-time {
+    position: relative;
+    padding: $padding-standard 0 $padding-standard 40px;
+    margin-bottom: $padding-small;
+    
+    & .icon-area {
+      position: absolute;
+      top: $padding-large;
+      left: 0;
+      width: 40px;
+
+      & i.material-icons {
+        font-size: 2.5em;
+        color: #4652bc;
+      }
+    }
+  }
+    
+  & .location-name {
+    border-bottom: #{$border-line};
+    & .city, 
+    & .state, 
+    & .country {
+      display: block;
+      @include text-clipped;
+    }
+    
+    & .city {
+      font-weight: 700;
+      font-size: 2em;
+    }
+    & .state {
+      color: #555;
+      font-size: $font-size-base;
+    }
+    & .country {
+      color: #555;
+      font-size: 1.5em;
+    }
+  }
+
+  & .location-time {
+    & .icon-area {
+      top: $padding-small;
+
+      & i.material-icons {
+        color: $color-orange;
+      }
+    }
+  }
+
+  & .location-weather {
+    padding: $padding-standard;
+    margin-bottom: $padding-small;
+    border-radius: $padding-small;
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background-color: $color-second;
+
+    & i.material-icons {
+      font-size: 4em;
+    }
+  }
+
+  & .location-temperature {
+    
+    & .degree {
+      display: block;
+      padding: $padding-standard;
+      margin-bottom: $padding-large;
+      border-radius: $padding-small;
+      text-align: center;
+      font-size: 2em;
+      font-weight: 700;
+      color: $color-white;
+      background-color: $color-green;
+
+      & sup {
+        font-size: 0.6em;
+      }
+    }
+
+    & .others {
+      & ul {
+        column-count: 3;
+        @include list-blank;
+
+        & li {
+          font-size: 1.5em;
+          font-weight: 700;
+
+          & .label {
+            display: block;
+            font-size: $font-size-base;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}

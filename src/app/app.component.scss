@@ -1,0 +1,16 @@
+@import '../assets/variables.scss';
+@import '../assets/mixins.scss';
+
+:host ::ng-deep main {
+  padding: $padding-large;
+}
+
+:host ::ng-deep .main-header {
+  border-bottom: #{$border-line};
+  margin: 0 0 $padding-large;
+
+  & h1 {
+    margin: 0 0 $padding-standard;
+    color: $color-first;
+  }
+}

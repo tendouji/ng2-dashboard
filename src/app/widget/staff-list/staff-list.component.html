@@ -1,0 +1,52 @@
+<div class="staff-list-container">
+  <dashboard-responsive-table>
+    <colgroup>
+      <col>
+      <col>
+      <col style="width: 130px;">
+      <col>
+      <col>
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th *ngFor="let key of keyTitle">
+          <a href="#" (click)="sortColumn($event, key)">
+            <span *ngIf="key !=''"> 
+              <span class="keytitle">{{ key | uppercase }}</span> 
+              <i class="material-icons">swap_vert</i>
+            </span>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of sortedList">
+        <td>
+          <span class="title">{{ keyTitle[0] | uppercase }}</span> 
+          {{item.id}} 
+        </td>
+        <td class="staff-photo">
+          <span class="photo" [style.background-image]="
+          'url(' + 
+          (item.photo=='' ? 'assets/img/standard-user.png' : item.photo)
+          + ')'"></span>
+        </td>
+        <td class="staff-name">
+          <span class="title">{{ keyTitle[2] | uppercase }}</span> 
+          <span class="name">
+            {{item.name}}  
+          </span>
+        </td>
+        <td>
+          <span class="title">{{ keyTitle[3] | uppercase }}</span> 
+          {{item.position}}
+        </td>
+        <td>
+          <span class="title">{{ keyTitle[4] | uppercase }}</span> 
+          {{item.department}}
+        </td>
+      </tr>
+    </tbody>
+  </dashboard-responsive-table>  
+</div>

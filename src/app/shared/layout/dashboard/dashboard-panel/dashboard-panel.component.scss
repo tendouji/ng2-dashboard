@@ -1,0 +1,133 @@
+@import '../../../../../assets/variables.scss';
+@import '../../../../../assets/mixins.scss';
+
+.dashboard-panel {
+  @include standard-panel;
+  position: relative;
+  width: 100%; 
+  padding: 0;
+  margin-right: -1em;
+  margin-bottom: $padding-large;
+  border-radius: 3px;
+  transition: box-shadow $transition-time-standard;
+
+  &:hover {
+    box-shadow: 0 0 5px $transparent-dark;
+  }
+  
+  & .dashboard-panel-header,
+  & .dashboard-panel-content, 
+  & .dashboard-panel-footer {
+    display: block;
+    padding: $padding-standard $padding-large;
+  }
+  
+  & .dashboard-panel-header {
+    padding: 0;
+    background: $transparent-dark-light;
+    border-bottom: #{$border-line}; 
+    @include clear-bottom;
+    
+    & .header-title {
+      float: left;
+      width: calc(100% - 50px);
+      padding: $padding-standard 0 $padding-standard $padding-large;
+      box-sizing: border-box;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 24px;
+      @include text-clipped;      
+      @include centered-icon;
+
+      & span {
+        vertical-align: middle;
+        margin-left: $padding-small;
+      }
+    }
+    
+    & .header-options {
+      float: right;
+      position: relative;
+      width: 50px;
+      height: 44px;
+      padding: $padding-standard $padding-large;
+      box-sizing: border-box;
+      line-height: 24px;
+      
+      & a {
+        position: absolute;
+        display: block;
+        text-align: center;
+        line-height: 44px;
+        @include fit-full-screen;
+        @include centered-icon;
+
+        &:hover {
+          background-color: rgba(0,0,0,0.1);
+        }
+      }
+    }
+  }
+  
+  & .dashboard-panel-footer {
+    border-top: #{$border-line}; 
+    background: $transparent-dark-light;
+  }
+  
+  &.small {
+    & .dashboard-panel-content {
+      height: 200px;
+      &.has-footer {
+        height: calc(200px - #{$common-bar-height});
+        padding-bottom: $padding-standard + $common-bar-height;
+      }
+    }
+  }
+  
+  &.medium {
+    & .dashboard-panel-content {
+      height: 400px;
+      &.has-footer {
+        height: calc(400px - #{$common-bar-height});
+        padding-bottom: $padding-standard + $common-bar-height;
+      }
+    }
+
+    &.half {
+      & .dashboard-panel-content {
+        height: calc(173px - 1em);
+
+        &.has-footer {
+          height: calc(159px - #{$common-bar-height});
+          padding-bottom: $padding-standard + $common-bar-height;
+        }
+      }
+
+    }
+
+  }
+    
+  &.large {
+    & .dashboard-panel-content {
+      height: 600px;
+      &.has-footer {
+        height: calc(600px - #{$common-bar-height});
+        padding-bottom: $padding-standard + $common-bar-height;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .dashboard-panel-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: $common-bar-height;
+  padding: 0 $padding-large;
+  line-height: $common-bar-height;
+  border-top: #{$border-line}; 
+  box-sizing: border-box;
+  background: $transparent-dark-light;
+}

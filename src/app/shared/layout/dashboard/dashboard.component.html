@@ -1,0 +1,83 @@
+<main>
+  <div class="main-header">
+    <h1>Dashboard</h1>
+  </div>
+
+  <div class="dashboard-container grid-container">
+    <div class="row">
+      <div class="col col-25">
+        <dashboard-dashboard-panel size="small" title="New Visits" icon
+        ="donut_large">
+          <dashboard-mini-charts chart="visitChart"></dashboard-mini-charts>
+        </dashboard-dashboard-panel>
+      </div>
+      <div class="col col-25">
+        <dashboard-dashboard-panel size="small" title="Active Users" icon
+        ="donut_large">
+          <dashboard-mini-charts chart="userChart"></dashboard-mini-charts>
+        </dashboard-dashboard-panel>
+      </div>
+      <div class="col col-25">
+        <dashboard-dashboard-panel size="small" title="Purchases" icon
+        ="donut_large">
+          <dashboard-mini-charts chart="purchaseChart"></dashboard-mini-charts>
+        </dashboard-dashboard-panel>
+      </div>
+      <div class="col col-25">
+        <dashboard-dashboard-panel size="small" title="New Signup" icon
+        ="donut_large">
+          <dashboard-mini-charts chart="signupChart"></dashboard-mini-charts>
+        </dashboard-dashboard-panel>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-25">
+        <dashboard-dashboard-panel size="medium" title="Weather" icon
+        ="settings_system_daydream">
+          <dashboard-location></dashboard-location>
+        </dashboard-dashboard-panel>
+      </div>
+      <div class="col col-25">
+        <dashboard-dashboard-panel size="medium half" title="Performance" icon
+        ="timeline">
+          <dashboard-mini-charts chart="performanceChart"></dashboard-mini-charts>
+        </dashboard-dashboard-panel>
+        <dashboard-dashboard-panel size="medium half" title="Dept Summary" icon
+        ="assessment" [hasFooter]="true">
+          <dashboard-mini-charts chart="managementChart"></dashboard-mini-charts>
+        </dashboard-dashboard-panel>
+      </div>
+      <div class="col col-50">
+        <dashboard-dashboard-panel size="medium" title="Recent Messages" icon
+        ="mail_outline">
+          <dashboard-messages></dashboard-messages>
+        </dashboard-dashboard-panel>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-full">
+        <dashboard-dashboard-panel size="medium" title="Calendar" icon
+        ="date_range">
+          <dashboard-staff-calendar></dashboard-staff-calendar>
+        </dashboard-dashboard-panel>
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="col col-40">
+        <dashboard-dashboard-panel size="large" title="Task To Do" icon
+        ="list" [hasFooter]="true">
+          <dashboard-todo-list></dashboard-todo-list>
+        </dashboard-dashboard-panel>
+      </div>    
+      <div class="col col-60">
+        <dashboard-dashboard-panel size="large" title="Staff List" icon
+        ="people">
+          <dashboard-staff-list></dashboard-staff-list>
+        </dashboard-dashboard-panel>
+      </div>
+    </div>
+  </div>
+</main>

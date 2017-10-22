@@ -1,0 +1,81 @@
+<div *ngIf="chart=='performanceChart'" class="performance-chart" #performanceChart>
+  <div class="average-percentage">
+    <span class="label">Average (past 6 months)</span>
+    {{ sampleChartData['performance'].average | decimalize }}%
+  </div>
+  <chart
+    [type]="sampleChartData['performance'].type" 
+    [data]="sampleChartData['performance'].data" 
+    [options]="sampleChartData['performance'].options"></chart>
+</div>
+
+<div *ngIf="chart=='managementChart'" class="management-chart" #managementChart>
+  <chart
+    [type]="sampleChartData['management'].type" 
+    [data]="sampleChartData['management'].data" 
+    [options]="sampleChartData['management'].options"></chart>
+
+  <div class="dashboard-panel-footer">
+    *Data based on last month
+  </div>
+</div>
+
+<div *ngIf="chart=='visitChart'" class="visit-chart" #visitChart>
+  <div class="chart-container">
+    <div class="chart-holder">
+      <chart
+        [type]="sampleChartData['visit'].type" 
+        [data]="sampleChartData['visit'].data" 
+        [options]="sampleChartData['visit'].options"></chart>
+    </div>
+    <div class="chart-count">
+      <span class="label">{{ sampleChartData['visit'].data.labels[0] }}</span>
+      {{ sampleChartData['visit'].count | commaSeparator }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="chart=='userChart'" class="user-chart" #userChart>
+  <div class="chart-container">
+    <div class="chart-holder">
+      <chart
+        [type]="sampleChartData['user'].type" 
+        [data]="sampleChartData['user'].data" 
+        [options]="sampleChartData['user'].options"></chart>
+    </div>
+    <div class="chart-count">
+      <span class="label">{{ sampleChartData['user'].data.labels[0] }}</span>
+      {{ sampleChartData['user'].count | commaSeparator }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="chart=='purchaseChart'" class="purchase-chart" #purchaseChart>
+  <div class="chart-container">
+    <div class="chart-holder">
+      <chart
+        [type]="sampleChartData['purchase'].type" 
+        [data]="sampleChartData['purchase'].data" 
+        [options]="sampleChartData['purchase'].options"></chart>
+    </div>
+    <div class="chart-count">
+      <span class="label">{{ sampleChartData['purchase'].data.labels[0] }}</span>
+      {{ sampleChartData['purchase'].count | commaSeparator }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="chart=='signupChart'" class="signup-chart" #signupChart>
+  <div class="chart-container">
+    <div class="chart-holder">
+      <chart
+        [type]="sampleChartData['signup'].type" 
+        [data]="sampleChartData['signup'].data" 
+        [options]="sampleChartData['signup'].options"></chart>
+    </div>
+    <div class="chart-count">
+      <span class="label">{{ sampleChartData['signup'].data.labels[0] }}</span>
+      {{ sampleChartData['signup'].count | commaSeparator }}
+    </div>
+  </div>
+</div>

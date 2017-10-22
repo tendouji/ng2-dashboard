@@ -1,0 +1,180 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixins.scss';
+
+$todo-input-height: $header-height;
+$todo-list-height: 40px;
+$small-icon-width: 30px;
+
+.todo-widget {
+  height: 100%;
+
+  & .todo-add-list {
+    height: calc(#{$todo-input-height} + #{$padding-large} + #{$padding-standard});
+    border-bottom: #{$border-line};
+
+    & .todo-add-option {
+      position: relative;
+      top: 3px;
+      padding: 0 $todo-list-height 0 0;
+      text-align: right;
+      font-size: $font-size-xsmall;
+      line-height: 1em;
+      clear: both;
+
+      & input[type="checkbox"] {
+        display: none;
+
+        &:checked + span {
+          & i.material-icons {
+            &.unset {
+              display: none;
+            }
+            &.set {
+              display: inline-block;
+            }
+          } 
+        }
+      }
+
+      & span {
+        display: inline-block;
+        vertical-align: middle;
+
+        & i.material-icons {
+          font-size: $font-size-base + 2;
+          &.unset {
+            color: $color-first;
+          }
+          &.set {
+            display: none;
+            color: $color-red;
+          }
+        } 
+      }
+    }
+    
+    & input[type="text"] {
+      float: left;
+      height: $todo-input-height;
+      width: calc(100% - #{$todo-list-height});
+      padding-left: $padding-large;
+      border: 0;
+      border-bottom: #{$border-line};
+      line-height: $todo-input-height;
+      box-sizing: border-box;
+    }
+    
+    & button {
+      float: right;
+      height: $todo-input-height;
+      width: $todo-list-height;
+      border: 0;
+      text-align: center;
+      background: transparent;
+      color: $color-first;
+      @include centered-icon;
+    }
+  }
+  
+  & .todo-list-section {
+    height: calc(100% - #{$todo-input-height} - #{$padding-large} - #{$padding-standard});
+    overflow-y: auto;
+
+    & ul {
+      @include list-blank;
+
+      & li {
+        display: block;
+        height: $todo-list-height;
+        border-bottom: 1px dotted $color-second;
+        opacity: .8;
+        
+        &:hover {
+          opacity: 1;
+        }
+        
+        & label {
+          float: left;
+          height: $todo-list-height;
+          width: calc(100% - #{$todo-list-height});
+          line-height: $todo-list-height;
+
+          & .checkbox-icon, 
+          & .urgent-icon {
+            float: left;
+            height: $todo-list-height;
+            width: $small-icon-width;
+            text-align: center;
+            color: $color-dark;
+            @include centered-icon;
+          }
+
+          & .checkbox-icon {
+            text-align: left;
+            cursor: pointer;
+            
+            &.checked {
+              color: $color-green;
+              cursor: auto;
+            }
+          }
+
+          & .urgent-icon {
+            color: $color-red;
+          }
+          
+          & input[type="checkbox"] {
+            display: none;
+          }
+
+          & .todo-text {
+            float: left;
+            height: $todo-list-height;
+            width: calc(100% - (2 * #{$small-icon-width}));
+            line-height: $todo-list-height;
+            @include text-clipped;
+          }
+        }
+        
+        & button {
+          float: right;
+          height: $todo-list-height;
+          width: $todo-list-height;
+          border: 0;
+          text-align: center;
+          background: transparent;
+          color: $color-first;
+          @include centered-icon;
+        }
+      }
+    }
+  }
+}
+
+.dashboard-panel-footer {
+  white-space: nowrap;
+  overflow: hidden;
+
+  .footer-segment {
+    display: inline-block;
+    margin-right: $padding-standard;
+    @include centered-icon;
+    
+    & > span {
+      vertical-align: middle;
+    }
+
+    & i.material-icons {
+      font-size: 1.1em;
+
+      &.error {
+        color: $color-red;
+      }
+
+      &.checked {
+        color: $color-green;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,31 @@
+<p>Have questions? Contact the <b>Developer</b>!<br>
+  Or if you prefer direct email, here's my email, <a class="standard-link" href="mailto:tendoujir@gmail.com">tendoujir@gmail.com</a>, for your convenience.</p>
+
+<div class="contact-container grid-container custom-form">
+  <form [formGroup]="contactForm" (ngSubmit)="doLogin($event)" [class.clicked]="this.clickedOnce">
+    <div class="row">
+      <div class="col col-25"><span class="label">Name</span></div>
+      <div class="col col-75">
+        <input formControlName="name" type="text" placeholder="Your name" class="rounded" name="contactName" id="contactName">
+        <span class="error-message">{{ nameErrorText }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-25"><span class="label">Email</span></div>
+      <div class="col col-75">
+        <input formControlName="email" type="email" placeholder="Your email" class="rounded" name="contactEmail" id="contactEmail">
+        <span class="error-message">{{ emailErrorText }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-25"><span class="label">Message</span></div>
+      <div class="col col-75">
+        <textarea formControlName="message" name="contactMessage" id="contactMessage" rows="5" placeholder="Please have longer message!"></textarea>
+        <span class="error-message">{{ messageErrorText }}</span>
+      </div>
+    </div>
+    <div class="button-area">
+      <button class="button-rounded" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

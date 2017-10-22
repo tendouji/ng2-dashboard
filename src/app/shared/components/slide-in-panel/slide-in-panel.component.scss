@@ -1,0 +1,87 @@
+@import '../../../../assets/variables.scss';
+@import '../../../../assets/mixins.scss';
+
+.slide-in-panel {
+  position: fixed;
+  top: $header-height;
+  right: -5px;
+  height: calc(100% - #{$header-height});
+  width: 0;
+  background-color: $color-white;
+  border-left: #{$border-line};
+  border-top: #{$border-line};
+  box-shadow: -2px 0 10px $transparent-dark;
+  transition: width $transition-time-standard,
+              right $transition-time-standard;
+  
+  &.show {
+    z-index: $zindex-dimmer + 1;
+    right: 0;
+    width: $slide-in-panel-width;
+  }
+
+  & .close-link {
+    position: absolute;
+    top: $padding-small;
+    right: $padding-standard;
+    display: inline-block;
+    padding: $padding-small 0;
+    color: $color-first;
+    @include centered-icon;
+
+    & i.material-icons {
+      font-size: 1.5em;
+    }
+    
+    & .icon-left {
+      display: none;
+    }
+    
+    & .icon-right {
+      display: inline-block;
+    }
+  }
+  
+  &.left {
+    left: -5px;
+    right: auto;
+    box-shadow: 2px 0 10px $transparent-dark;
+    &.show {
+      left: 0;
+      right: auto;
+    }
+  
+    & .close-link {
+      //left: $padding-standard;
+      //right: auto;    
+    
+      & .icon-left {
+        display: inline-block;
+      }
+      
+      & .icon-right {
+        display: none;
+      }
+    }
+  }
+
+  & .slide-in-panel-content {
+    padding: $padding-large;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }  
+
+  &#menu .slide-in-panel-content {
+    padding: $padding-large 0;
+  }  
+
+}  
+
+:host ::ng-deep .inner-container {
+  & h2 {
+    margin: 0 0 2em;
+    font-size: $font-size-small;
+  }
+} 

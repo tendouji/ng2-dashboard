@@ -1,0 +1,74 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixins.scss';
+
+.staff-list-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+thead {
+  & tr {
+    & th {
+      white-space: nowrap;
+      font-weight: bold;
+      padding: $padding-standard;
+      
+      & a {
+        @include centered-icon;
+
+        & > span {
+          vertical-align: middle;
+        }
+
+        & i.material-icons {
+          font-size: $font-size-base;
+        }
+      }
+    }
+  }
+}
+
+tbody {
+  & tr {
+    @media #{$large-screen-media} {
+      display: block;
+      position: relative;
+      padding: 0 0 0 70px;
+    }
+  
+    & td {
+      padding: $padding-large $padding-standard;
+      
+      @media #{$large-screen-media} {
+        padding: $padding-standard;
+      }
+
+      &.staff-photo {
+        @media #{$large-screen-media} {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+            
+        & .photo {
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          background: $color-dark center no-repeat / cover;
+
+          @media #{$large-screen-media} {
+            height: 60px;
+            width: 60px;
+          }
+        }
+      }
+
+      &.staff-name {
+        & .name {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

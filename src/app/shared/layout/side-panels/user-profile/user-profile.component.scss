@@ -1,0 +1,75 @@
+@import '../../../../../assets/variables.scss';
+@import '../../../../../assets/mixins.scss';
+
+.user-profiler-container {
+  & .user-id, 
+  & .user-position {
+    text-align: center;
+    font-size: $font-size-small;
+    color: $color-second;
+    margin: 0 0 $padding-small;
+  }
+  
+  & .user-card {
+    @include standard-panel;
+    margin: 0 auto $padding-large;
+    
+    & .user-photo {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      background: $color-dark center no-repeat / cover;
+
+      & .change-photo {
+        display: inline-block;
+        position: absolute;
+        top: $padding-small;
+        right: $padding-small;
+        padding: $padding-small;
+        border-radius: 2px;
+        background: rgba(255,255,255,.7);
+        text-transform: uppercase;
+        font-size: $font-size-xsmall;
+        @include centered-icon;
+
+        & .text {
+          display: none;
+          vertical-align: middle;
+        }
+        & i.material-icons {
+          font-size: $font-size-base;
+        }
+        
+        &:hover {
+          & .text {
+            display: inline;
+          }
+        }
+      }
+    }
+    
+    & .user-name {
+      margin: $padding-small 0 0;
+      text-align: center;
+      color: $color-first;
+    }
+  }
+  
+  & .user-department {
+    text-align: center;
+  }
+  
+  & .logout-link {
+    display: inline-block;
+    margin-top: 2em;
+    padding: $padding-small 0;
+    color: $color-red;
+    @include centered-icon;
+    
+    & i.material-icons {
+      font-size: 1.5em;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import '../../../../assets/variables.scss';
+@import '../../../../assets/mixins.scss';
+
+.pages-container {
+  overflow: hidden;
+}
+
+.code-preview {
+  position: relative;
+  display: block;
+  @include standard-panel;
+  padding: (2*$padding-large) $padding-standard $padding-standard;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: $padding-small;
+    border: #{$border-line};
+    border-top: 0;
+    border-left: 0;
+    line-height: $padding-large;
+    background-color: $transparent-dark-light;
+    content: 'Code Preview';
+  }
+}

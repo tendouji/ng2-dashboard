@@ -1,0 +1,33 @@
+@import '../../../../assets/variables.scss';
+@import '../../../../assets/mixins.scss';
+
+.site-preloader {
+  position: fixed;
+  @include fit-full-screen;
+  z-index: $zindex-preloader;
+  background-color: $color-dark;
+  opacity: 1;
+  transition: opacity $transition-time-standard;
+
+  &.hide {
+    opacity: 0;
+  }
+  
+  & .preloader-line {
+    position: absolute;
+    @include fit-full-screen;
+    top: 50%;
+    height: 2px;
+    width: 0;
+    background-color: $color-first;
+    text-align: right;
+    transition: width $transition-time-standard;
+
+    & .preloader-text {
+      padding: $padding-small $padding-small 0 0;
+      color: $color-light;
+      font-size: $font-size-xsmall;      
+      white-space: nowrap;
+    }
+  }
+}

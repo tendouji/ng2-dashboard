@@ -1,0 +1,15 @@
+<div class="{{'dashboard-panel ' + size}}">
+  <div class="dashboard-panel-header">
+    <div class="header-title">
+      <i class="material-icons">{{ icon }}</i>
+      <span>{{ title }}</span>
+    </div>
+    <div class="header-options">
+      <a href="#"><i class="material-icons">more_horiz</i></a>
+    </div>
+  </div>
+  <div class="dashboard-panel-content">
+    <ng-content></ng-content>
+  </div>
+  <!-- <div class="dashboard-panel-footer">{{ footerElm }}</div> -->
+</div>

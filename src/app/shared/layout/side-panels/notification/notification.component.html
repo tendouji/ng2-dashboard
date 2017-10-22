@@ -1,0 +1,18 @@
+<div class="inner-container notification-container">
+  <h2>{{ 'Notification' | uppercase }}</h2>
+
+  <ul class="notification-list">
+    <li *ngFor="let item of notificationList">
+      <div class="image-holder">
+        <span *ngIf="!item.isIcon; else iconImage" class="image-photo" [style.backgroundImage]="'url('+item.photo+')'"></span>
+        <ng-template #iconImage>
+          <span class="image-icon"><i class="material-icons">shopping_cart</i></span>
+        </ng-template>
+      </div>
+      <div class="notification-area">
+        <div class="text">{{ item.text }}</div>
+        <div class="time">{{ item.time }}</div>
+      </div> 
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+<ul #menu>
+  <li>
+    <a routerLink="dashboard" routerLinkActive="active">
+      <i class="material-icons">dashboard</i> <span class="text">Dashboard</span>
+    </a>
+  </li>
+  <li class="hasSubmenu">
+    <a (click)="toggleSubmenu($event)"><i class="material-icons">apps</i> <span class="text">Features</span></a>
+    <ul>
+      <li>
+        <a routerLink="features/pages" routerLinkActive="active">Pages</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <footer>
+      <span><i class="material-icons">copyright</i> 2017 Chan Wan</span>
+      <span><i class="material-icons">mail_outline</i><a href="mailto:tendoujir@gmail.com">tendoujir@gmail.com</a></span>
+    </footer>
+  </li>
+</ul>

@@ -1,0 +1,15 @@
+<dashboard-header #headerComponent></dashboard-header>
+
+<router-outlet></router-outlet>
+
+<dashboard-slide-in-panel [show]="showSlideInPanel" [position]="slideInPanelPosition">
+  
+  <dashboard-menu #menu *ngIf="slideInPanelType=='menu'"></dashboard-menu>
+  <dashboard-user-profile #userProfile *ngIf="slideInPanelType=='userProfile'"></dashboard-user-profile>
+  <dashboard-notification #notification *ngIf="slideInPanelType=='notification'"></dashboard-notification>
+
+</dashboard-slide-in-panel>
+
+<dashboard-dimmer #dimmer [show]="showDimmer" (click)="callFunction($event)"></dashboard-dimmer>
+
+<dashboard-site-preloader [siteAssetURL]="siteAssetURL" [siteAssetList]="siteAssets"></dashboard-site-preloader>

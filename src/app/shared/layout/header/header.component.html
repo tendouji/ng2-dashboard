@@ -1,0 +1,31 @@
+<header #header>
+  <div class="search-panel">
+    <form>
+      <input type="text" placeholder="Search site (hit ENTER to search)" [(ngModel)]="searchKeyStr" name="searchKeyInput" #searchKeyInput>
+      <button type="submit"><i class="material-icons">search</i></button>
+    </form>
+    <a class="close-search-link header-link" href="#close" (click)="hideSearch($event)"><i class="material-icons">close</i></a>
+  </div>
+  <div class="header-panel">
+    <div class="left-side">
+      <a class="header-link menu-link" title="Menu" href="#menu" (click)="showSlideInPanel($event, 'menu', 'left')"><i class="material-icons">menu</i></a>
+    </div>
+    <div class="right-side">
+      <a class="header-link search-link" title="Search" href="#search" (click)="showSearch($event)"><i class="material-icons">search</i></a>
+      <a class="header-link notification-link" title="Notification" [class.notice-show]="noticeCount > 0" href="#notification" (click)="showSlideInPanel($event, 'notification', 'right')">
+        <i id="no" class="material-icons">notifications_none</i>
+        <i id="yes" class="material-icons">notifications</i>
+        <span class="notice-count">{{noticeCount}}</span>
+      </a>
+      <a class="header-link user-link" title="User Profile" href="#user" (click)="showSlideInPanel($event, 'userProfile', 'right')">
+        <span class="user-photo" [style.backgroundImage]="'url('+userImage+')'"></span>
+      </a>
+      <a class="header-link settings-link" title="Settings" href="#settings"><i class="material-icons">settings</i></a>  
+
+      <dashboard-popup-modal linkContent="<i class='material-icons'>live_help</i>" linkClass="header-link helpline-link" linkTitle="Helpline" [popupWidth]="800">
+        <dashboard-contact-form></dashboard-contact-form>
+      </dashboard-popup-modal>
+    </div>
+    <div class="overlay"></div>
+  </div>
+</header>

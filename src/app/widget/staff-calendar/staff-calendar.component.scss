@@ -1,0 +1,211 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixins.scss';
+
+$left-panel-width: 100px;
+$td-height: 30px;
+$td-width: 50px;
+$event-bg-color: #fdfdd4;
+
+.calendar-holder {
+  height: 100%;
+  min-width: 100%;
+
+  & .calendar-frame {
+    height: 100%;
+    min-width: 100%;
+    line-height: $td-height;
+
+    & .calendar-header {
+      border: #{$border-line};
+      border-bottom: 0;
+      @include clear-bottom;
+
+      & .header-left {
+        float: left;
+        width: $left-panel-width;
+        padding: $padding-standard;
+        box-sizing: border-box;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1em;
+        @include centered-icon;
+
+        & > span {
+          display: block;
+        }
+      }
+      
+      & .header-right {
+        float: left;
+        width: calc(100% - #{$left-panel-width});
+        font-weight: 700;
+        box-sizing: border-box;
+        border-left: #{$border-line};
+
+        & .title-month {
+          border-bottom: #{$border-line};
+          text-align: center;
+          font-weight: 700;
+        }
+
+        & .title-dates {
+          white-space: nowrap;
+          font-size: 0;
+          overflow: hidden;
+
+          & > span, 
+          & > .filler {
+            display: inline-block;
+            width: $td-width;
+            border-right: #{$border-line};
+            font-size: $font-size-base;
+            text-align: center;
+            vertical-align: bottom;
+            background-color: $transparent-dark-light;
+
+            &:last-child {
+              border-right: 0;
+            }
+
+            &.weekend {
+              background-color: $transparent-dark;
+            }
+          }
+
+          & > .filler {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    & .calendar-body {
+      height: calc(100% - (2 * #{$td-height}) - #{$padding-small});
+      border: #{$border-line};
+      @include clear-bottom;
+      
+      & .body-left, 
+      & .body-right {
+        float: left;
+        height: 100%;
+        //padding-bottom: $padding-large;
+      }
+
+      & .body-left {
+        width: $left-panel-width;
+        box-sizing: border-box;
+        overflow: hidden;
+        
+        & .filler, 
+        & .staff-name {
+          padding: 0 $padding-standard;
+          box-sizing: border-box;
+          border-bottom: #{$border-line};
+          font-weight: 700;
+          @include text-clipped;
+        }
+
+        & .filler {
+          background-color: transparent;
+        }
+      }
+
+      & .body-right {
+        width: calc(100% - #{$left-panel-width});
+        border-left: #{$border-line};
+        box-sizing: border-box;
+        overflow: auto;
+
+        & .staff-date-row {
+          border-bottom: #{$border-line};
+          white-space: nowrap; 
+          font-size: 0;
+          @include clear-bottom;
+
+          & .staff-date {
+            display: inline-block;
+            width: $td-width;
+            border-right: #{$border-line};
+            line-height: $td-height;
+            text-align: center;
+            font-size: $font-size-base;
+            vertical-align: bottom;
+
+            &.weekend {
+              background-color: $transparent-dark;
+            }
+            
+            & .agenda-box {
+              position: relative;
+              display: block;
+              padding: 0 0 0 $padding-large;
+              box-sizing: border-box;
+              text-align: left;
+              @include text-clipped;
+
+              &:before {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: $padding-large;
+                padding: 4px 0;
+                box-sizing: border-box;
+                font-size: 10px;
+                text-align: center;
+                color: $color-white;
+                white-space: normal;
+                line-height: 1em;
+              }
+
+              &.annual-leave {
+                background-color: $event-bg-color;
+
+                &:before {
+                  background-color: $color-blue;
+                  content: 'A\AL';
+                }
+              }
+
+              &.emergency-leave {
+                background-color: $event-bg-color;
+                
+                &:before {
+                  background-color: $color-red;
+                  content: 'E\AL';
+                }
+              }
+
+              &.medical-leave {
+                background-color: $event-bg-color;
+                
+                &:before {
+                  background-color: $color-first;
+                  content: 'M\AL';
+                }
+              }
+
+              &.holiday {
+                background-color: $event-bg-color;
+                
+                &:before {
+                  background-color: $color-green;
+                  content: 'H\AL';
+                }
+              }
+
+              &.training {
+                background-color: $event-bg-color;
+                
+                &:before {
+                  background-color: $color-orange;
+                  content: 'T\AR';
+                }
+              }
+            }            
+          }
+        }
+      }
+    }
+  }
+}

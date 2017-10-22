@@ -1,0 +1,49 @@
+<div class="todo-widget">
+  <div class="todo-add-list">
+    <input type="text" [(ngModel)]="newTodoList" placeholder="Add list" name="addList" #addList>
+    <button (click)="addTodoList()"><i class="material-icons">add_circle_outline</i></button>
+    <div class="todo-add-option">
+      <label for="setUrgent">
+        <input type="checkbox" name="setUrgent" id="setUrgent" [checked]="isUrgent" (change)="isUrgent = !isUrgent">
+        <span>
+          <i class="material-icons unset">check_box_outline_blank</i>
+          <i class="material-icons set">check_box</i>
+        </span> Urgent
+      </label>
+    </div>
+  </div>
+  <div class="todo-list-section">
+    <ul>
+      <li *ngFor="let item of todoList" [attr.data-id]="item.id">
+        <label>
+          <span class="checkbox-icon {{item.isDone?'checked':''}}" (click)="checkTodoList($event, item.id)">
+            <i *ngIf="!item.isDone; else checked" class="material-icons">panorama_fish_eye</i>
+            <ng-template #checked>
+              <i class="material-icons">check_circle</i>
+            </ng-template>
+          </span>
+          <input type="checkbox">
+          <span class="todo-text">{{ item.text }}</span>
+          <span *ngIf="item.isUrgent" class="urgent-icon"><i class="material-icons">error</i></span>
+        </label>
+        <button (click)="deleteTodoList(item.id)"><i class="material-icons">highlight_off</i></button>
+      </li>
+    </ul>
+  </div>
+  <div class="dashboard-panel-footer">
+    <span class="footer-segment">
+      <i class="material-icons">panorama_fish_eye</i>
+      <span>Total: {{ totalList }}</span>
+    </span>
+    <span class="footer-segment">
+      <i class="material-icons checked">check_circle</i>
+      <span>Checked: {{ checkedList }}</span>
+    </span>
+    <span class="footer-segment">
+      <i class="material-icons error">error</i> 
+      <span>Urgent: {{ urgentList }}</span>
+    </span>
+  </div>
+</div>
+
+

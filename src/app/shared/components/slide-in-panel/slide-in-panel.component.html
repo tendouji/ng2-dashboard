@@ -1,0 +1,9 @@
+<div class="slide-in-panel" #slideInPanel>
+  <a href="#close" class="close-link" (click)="closeSlideInPanel($event)">
+    <i class="icon-right material-icons">keyboard_arrow_right</i>
+    <i class="icon-left material-icons">keyboard_arrow_left</i>
+  </a>
+  <div class="slide-in-panel-content">
+    <ng-content></ng-content>
+  </div>
+</div>

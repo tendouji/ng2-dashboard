@@ -1,0 +1,81 @@
+@import '../../../../../assets/variables.scss';
+@import '../../../../../assets/mixins.scss';
+
+ul {
+  @include list-blank;
+  margin-top: $padding-large;
+
+  & li {
+    display: block;
+
+    & a {
+      display: block;
+      padding: $padding-large;
+      font-size: $font-size-large;
+      cursor: pointer;
+      @include centered-icon;
+
+      & .text {
+        vertical-align: middle;
+      }
+
+      &.active {
+        font-weight: bold;
+        color: $color-first;
+        background-color: rgba(0, 0, 0, .05);
+
+        & i.material-icons { 
+          color: $color-orange;
+        }
+      }
+    }
+    &.active {
+      & > a {
+        font-weight: bold;
+        color: $color-first;
+        background-color: rgba(0, 0, 0, .05);
+
+        & i.material-icons { 
+          color: $color-orange;
+        }
+      }
+    }
+      
+    & ul {
+      margin: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height $transition-time-standard;
+    }
+
+    &.open {
+      background-color: rgba(0, 0, 0, .05);
+      & ul {
+        max-height: 150px;
+      }
+    }
+  }
+  
+  & footer {
+    margin-top: $padding-large;
+    padding: $padding-large $padding-large 0;
+    font-size: $font-size-xsmall;
+    line-height: 20px;
+    border-top: #{$border-line};
+    @include centered-icon;
+
+    & i.material-icons {
+      font-size: $font-size-base;
+    }
+
+    & > span {
+      display: block;
+    }
+  
+    & a {
+      display: inline;
+      padding: 0;
+      color: $color-orange;
+    }
+  }
+}

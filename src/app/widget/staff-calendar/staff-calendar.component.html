@@ -1,0 +1,48 @@
+<div class="calendar-holder">
+  <div class="calendar-frame">
+    <div class="calendar-header">
+      <div class="header-left">
+        <i class="material-icons">perm_contact_calendar</i>
+        <span>Staff Name</span>
+      </div>
+      <div class="header-right">
+        <div class="title-month">{{ month }}</div>
+        <div class="title-dates" #titleDates>
+          <span *ngFor="let i of dates; let day = index" [class.weekend]="isWeekend(day+1)">
+            {{ day + 1 }}
+          </span>
+          <div class="filler">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+    <div class="calendar-body">
+      <div class="body-left" #staffNames>
+        <div class="staff-name" *ngFor="let item of calendarData['data']">
+          {{ item | objectReader:'key' }}
+        </div>
+        <div class="filler">&nbsp;</div>
+      </div>
+      <div class="body-right" (scroll)="calenderScrollHandler($event)">
+        <div class="staff-date-row" *ngFor="let item of calendarData['data']" [style.width]="(dates.length * 51) + 'px'">
+          
+          <ng-container *ngFor="let i of (item | objectReader:'value'); let day = index">
+            <div *ngIf="!isOffset(i)" [attr.title]="day+1" class="staff-date {{isWeekend(day+1) ? 'weekend' : ''}}" [style.width]="(isObject(i) ? (i.days*51-1) : 50) + 'px'">
+              <span *ngIf="isLeave(i.type); else agenda2" class="agenda-box {{i.type}}" title="{{ i.description }}">
+                {{ i.description }}
+              </span>
+              <ng-template #agenda2>
+                <span *ngIf="isHoliday(day+1); else agenda3" class="agenda-box holiday" title="{{ (day+1) + ': ' + getHoliday(day+1) }}">
+                  {{ getHoliday(day+1) }}
+                </span>
+                <ng-template #agenda3>
+                  <span class="agenda-box">&nbsp;</span>
+                </ng-template>
+              </ng-template>
+            </div>
+          </ng-container>    
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixins.scss';
+
+.message-list-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+thead {
+  & tr {
+    & th {
+      white-space: nowrap;
+      font-weight: bold;
+      padding: $padding-standard;
+      
+      & a {
+        @include centered-icon;
+
+        & > span {
+          vertical-align: middle;
+        }
+
+        & i.material-icons {
+          font-size: $font-size-base;
+
+          &.priority-title {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+tbody {
+  & tr {
+    &:hover {
+      background-color: $transparent-dark-light;
+      cursor: pointer;
+    }
+
+    @media #{$large-screen-media} {
+      position: relative;
+      display: block;
+    }
+
+    & td {
+      padding: $padding-large $padding-standard;
+      
+      @media #{$large-screen-media} {
+        padding: $padding-standard;
+      }
+        
+      &.action {
+        & .action-area {
+          @media #{$large-screen-media} {
+            float: right;
+          }
+
+          & a {
+            color: $color-first;
+            opacity: .4;
+            display: block;
+
+            @media #{$large-screen-media} {
+              display: inline-block;
+              margin: 0 0 0 $padding-large;
+              vertical-align: middle;
+            }
+              
+            &:hover {
+              opacity: 1;
+            }
+  
+            &.star:hover {
+              color: $color-orange;
+            }
+  
+            &.delete:hover {
+              color: $color-red;
+            }
+          }
+        }
+      }
+
+      &.message {
+        & .subject {
+          display: block;
+          margin-bottom: $padding-small;
+          font-weight: bold;
+        }
+        & .text {
+          font-size: $font-size-small;
+        }
+      }
+
+      &.priority {
+        @media #{$large-screen-media} {
+          position: absolute;
+          top: 0;
+          right: 80px;
+        }
+
+        & .priority-icon {
+          &.high {
+            & i.material-icons {
+              color: $color-red;
+            }
+          }
+          &.medium {
+            & i.material-icons {
+              color: #fc0;
+            }
+          }
+        } 
+      } 
+    }
+  }
+}
