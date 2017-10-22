@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CodePreviewDirective } from '../../directives/code-preview/code-preview.directive';
 
 @Component({
   selector: 'dashboard-pages',
