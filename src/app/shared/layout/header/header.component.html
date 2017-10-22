@@ -20,7 +20,9 @@
       <a class="header-link user-link" title="User Profile" href="#user" (click)="showSlideInPanel($event, 'userProfile', 'right')">
         <span class="user-photo" [style.backgroundImage]="'url('+userImage+')'"></span>
       </a>
-      <a class="header-link settings-link" title="Settings" href="#settings"><i class="material-icons">settings</i></a>  
+      <a class="header-link settings-link" title="Settings" href="#settings" (click)="showSlideInPanel($event, 'settings', 'right')">
+        <i class="material-icons">settings</i>
+      </a>  
 
       <dashboard-popup-modal linkContent="<i class='material-icons'>live_help</i>" linkClass="header-link helpline-link" linkTitle="Helpline" [popupWidth]="800">
         <dashboard-contact-form></dashboard-contact-form>

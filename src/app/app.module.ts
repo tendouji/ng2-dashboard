@@ -34,6 +34,7 @@ import { PagesComponent } from './shared/layout/pages/pages.component';
 import { CommaSeparatorPipe } from './shared/pipes/comma-separator/comma-separator.pipe';
 import { ContactFormComponent } from './widget/contact-form/contact-form.component';
 import { StaffCalendarComponent } from './widget/staff-calendar/staff-calendar.component';
+import { SettingsComponent } from './shared/layout/side-panels/settings/settings.component';
 
 const appRoutes: Routes = [
   { 
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
     MessagesComponent,
     CommaSeparatorPipe,
     ContactFormComponent,
-    StaffCalendarComponent
+    StaffCalendarComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
